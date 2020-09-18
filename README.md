@@ -1,6 +1,6 @@
 ## 30 Days of JavaScript
 Build 30 things in 30 days with 30 tutorial
-[<a href="https://javascript30.com/" target="_blank">Javascript30</a>]
+[[JavaScript30](https://javascript30.com/)]
 
 
 ## General Purpose
