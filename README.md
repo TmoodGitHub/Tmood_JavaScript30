@@ -3,12 +3,12 @@ Build 30 things in 30 days with 30 tutorial
 [JavaScript30](https://javascript30.com/)
 
 
-## General Info
-Rehashing my javascript skills by taking 30 different lessons in 30 days and come up with 30 javascript projects to become part of my portfolio.
+## General Purpose
+Rehashing my javascript skills by taking 30 tutorial in 30 days. The take-away is to improve my javascript coding skills and have 30 completed vanilla javascript projects to add to my protfolio.
 
 
 ## Technologies
-Project is created with:
-* 100% vanilla javascript
+All projects are created with:
+* Vanilla JavaScript
 * HTML
 * CSS
