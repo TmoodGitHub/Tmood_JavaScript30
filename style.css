@@ -3,6 +3,8 @@
 html{
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
+    background: rgb(87, 87, 87);
+    color: white;
 }
 
 *, *:before, *:after{
@@ -12,11 +14,12 @@ html{
 ul{
     padding: 0;
     margin: 0.5em;
+    max-width: 1300px;
 }
 
 li{
     list-style-type: none;
-    border: thin solid gray;
+    background: rgb(46, 45, 45);
     border-radius: 3px;
 }
 
@@ -30,7 +33,8 @@ li{
     grid-template-columns: 4em auto;
     grid-template-rows: 1fr 1fr;
     text-decoration: none;
-    color: black;
+    color: white;
+    border-radius: 3px;
 }
 
 .card a:hover,
@@ -38,6 +42,7 @@ li{
     background: lightgray;
     box-shadow: 2px 1px 3px rgb(134, 134, 134);
     font-size: 20px;
+    color: black;
     transition: 0.3s;
 }
 
@@ -80,6 +85,10 @@ li{
 
 
 @media only screen and (min-width: 70em){
+    ul{
+        margin: 0.5em auto;
+    }
+
     .cards{
         grid-template-columns: repeat(3, 1fr);
     }
