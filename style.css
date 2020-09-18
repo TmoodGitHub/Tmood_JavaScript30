@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+html{
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+
+ul{
+    padding: 0;
+    margin: 0.5em;
+}
+
+li{
+    list-style-type: none;
+    border: thin solid gray;
+    border-radius: 3px;
+}
+
+.cards{
+    display: grid;
+    gap: 1em;
+}
+
+.card a{
+    display: grid;
+    grid-template-columns: 4em auto;
+    grid-template-rows: 1fr 1fr;
+    text-decoration: none;
+    color: black;
+}
+
+.card a:hover,
+.card a:focus{
+    background: lightgray;
+    box-shadow: 2px 1px 3px rgb(134, 134, 134);
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.card a .title{
+    grid-row: 1/3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+}
+
+    .card a .title .day{
+        font-weight: 500;
+    }
+
+    .card a .title .num{
+        font-weight: 800;
+        font-size: 28px;
+        color: royalblue;
+    }
+
+.card .meta{
+    font-size: 20px;
+    font-weight: bold;
+    grid-row: 1/3;
+    padding: 0.5em;
+    display: flex;
+    align-items: center;
+}
+
+
+
+@media only screen and (min-width: 50em){
+    .cards{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+
+@media only screen and (min-width: 70em){
+    .cards{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
