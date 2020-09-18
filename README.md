@@ -1,6 +1,6 @@
 ## 30 Days of JavaScript
 Build 30 things in 30 days with 30 tutorial
-[JavaScript30](https://javascript30.com/)
+[[JavaScript30](https://javascript30.com/)]
 
 
 ## General Purpose
