@@ -1,0 +1,166 @@
+
+body,html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+html {
+  background: #018DED url(wood-background.jpg);
+  background-size: cover;
+  background-repeat: repeat-y;
+  text-align: center;
+  font-size: 10px;
+}
+
+.clock-body {
+  margin: 0;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 70vh;
+  align-items: center;
+}
+
+.clock {
+  width: 30rem;
+  height: 30rem;
+  border: 3px solid white;
+  border-radius: 50%;
+  background-color: white;
+  margin: 50px auto;
+  position: relative;
+  padding: 2rem;
+  box-shadow:
+    0 0 0 4px rgba(0,0,0,0.1),
+    inset 0 0 0 3px #EFEFEF,
+    inset 0 0 10px black,
+    0 0 10px rgba(0,0,0,0.2);
+}
+
+.spinClock{
+  perspective: 1000px;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  transform: rotateY(360deg);
+}
+
+.clock-face {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform: translateY(-3px); /* account for the height of the clock hands */
+}
+
+.minute,
+.hour {
+  position: absolute;
+  height: 100px;
+  width: 8px;
+  margin: auto;
+  top: -33%;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: black;
+  transform-origin: bottom center;
+  transform: rotate(90deg);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.minute {
+  position: absolute;
+  height: 130px;
+  background:gray;
+  width: 4px;
+  top: -43%;
+  left: 0;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+  transform: rotate(90deg);
+}
+
+.second {
+  position: absolute;
+  height: 150px;
+  width: 2px;
+  margin: auto;
+  top: -50%;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: 4px;
+  background: #FF4B3E;
+  transform-origin: bottom center;
+  transform: rotate(90deg);
+  z-index: 1;
+}
+
+.dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 100px;
+  background: white;
+  border: 2px solid #1b1b1b;
+  border-radius: 100px;
+  margin: auto;
+  z-index: 1;
+}
+
+.tmoodStyle{
+  display: flex;
+  justify-content: flex-end;
+  z-index: 10;
+}
+
+.tmoodStyle a{
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0.5em;
+  margin: 0.25em;
+  background: white;
+  border: 2px solid black;
+  color: black;
+  border-radius: 5px;
+}
+
+  .tmoodStyle a:hover,
+  .tmoodStyle a:focus{
+    box-shadow: 2px 1px 3px black;
+    transition: 0.3s;
+    font-size: 26px;
+    animation-name: animeBtn;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  @keyframes animeBtn{
+    0%{
+      background-color: white;
+    }
+
+    100%{
+      background-color: gray;
+    }
+  }
+
+
+/** ADDITIONAL MOD */
+
+.timezone-selection select{
+  border: 3px solid white;
+  border-radius: 3px;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  padding: 1rem 2rem;
+  box-shadow:
+    0 0 0 4px rgba(0,0,0,0.1)
+}
