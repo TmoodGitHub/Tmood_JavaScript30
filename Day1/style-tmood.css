@@ -1,0 +1,130 @@
+html {
+  font-size: 10px;
+}
+
+body,html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.keyboard-body{
+  position: relative; 
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.keyboard-body::before{
+  content: "";
+  background: url('images/309722.jpg') bottom center;
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.6;
+}
+
+.keyboard-area{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  column-gap: 3em;
+}
+
+.leftKeys{
+  border: .4rem solid black;
+  border-radius: 1rem;
+  grid-column: 2/3;
+  grid-row: 2/4;
+  transform: rotate(5deg);
+  background-color: rgb(189, 186, 186);
+}
+
+.rightKeys{
+  border-radius: 1rem;
+  border: .4rem solid black;
+  grid-column: 3/4;
+  grid-row: 2/4;
+  transform: rotate(-5deg);
+  background-color: rgb(189, 186, 186);
+}
+
+.keys {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.key {
+  border: .4rem solid black;
+  border-radius: .5rem;
+  margin: 1rem;
+  font-size: 1.5rem;
+  padding: 1rem .5rem;
+  transition: all .07s ease;
+  width: 10rem;
+  text-align: center;
+  color: white;
+  background: rgba(0,0,0,1);
+  text-shadow: 0 0 .5rem black;
+}
+
+.playing {
+  transform: scale(1.5);
+  border-color: #ffc600;
+  box-shadow: 0 0 1rem #ffc600;
+}
+
+kbd {
+  display: block;
+  font-size: 4rem;
+}
+
+.sound {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  color: #ffc600;
+}
+
+.tmoodStyle{
+  display: flex;
+  justify-content: flex-end;
+  z-index: 10;
+}
+
+.tmoodStyle a{
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0.5em;
+  margin: 0.25em;
+  background: white;
+  border: 2px solid black;
+  color: black;
+  border-radius: 5px;
+}
+
+  .tmoodStyle a:hover,
+  .tmoodStyle a:focus{
+    box-shadow: 2px 1px 3px black;
+    transition: 0.3s;
+    font-size: 26px;
+    animation-name: animeBtn;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  @keyframes animeBtn{
+    0%{
+      background-color: white;
+    }
+
+    100%{
+      background-color: gray;
+    }
+  }
