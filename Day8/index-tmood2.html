@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Canvas</title>
+</head>
+<body>
+  <div class="signatureBox">
+    <canvas id="draw"></canvas>
+  </div>
+<script>
+  const canvas = document.querySelector('#draw');
+  const ctx = canvas.getContext('2d');
+
+  var heightRatio = 0.5;
+  canvas.height = canvas.width * heightRatio;
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  ctx.strokeStyle = '#BADA55';
+  ctx.lineJoin = 'round';
+  ctx.lineCap = 'round';
+  ctx.lineWidth = 50;
+  //ctx.globalCompositeOperation = 'overlay';
+
+  let isDrawing = false;
+  let lastX = 0;
+  let lastY = 0;
+  let hue = 0;
+  let direction = true;
+
+
+  function mouseDraw(e){
+    if(!isDrawing) return; //stop running if mouse isn't pressed down (mousedown)
+    console.log(e);
+
+    ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+    ctx.beginPath();
+    ctx.moveTo(lastX, lastY);
+    ctx.lineTo(e.clientX, e.clientY);
+    ctx.stroke();
+
+    // lastX = e.offsetX;
+    // lastY = e.offsetY;
+    [lastX, lastY] = [e.clientX, e.clientY];
+    lineDraw();
+  }
+
+  function touchDraw(e){
+    if(!isDrawing) return; //stop running if touch isn't moving (touchmove)
+    console.log(e);
+
+    ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+    ctx.beginPath();
+    ctx.moveTo(lastX, lastY);
+    ctx.lineTo(e.touches[0].clientX, e.touches[0].clientY);
+    ctx.stroke();
+
+    [lastX, lastY] = [e.touches[0].clientX, e.touches[0].clientY];
+    //lineDraw();
+  }
+
+  function lineDraw(){
+    hue++;
+
+    if(hue >= 360){
+      hue = 0;
+    }
+
+    if(ctx.lineWidth >= 50 || ctx.lineWidth <= 1){
+      direction = !direction;
+    }
+
+    if(direction){
+      ctx.lineWidth++;
+    }
+    else{
+      ctx.lineWidth--;
+    }
+  }
+
+  //mouse events
+  canvas.addEventListener('mousemove', mouseDraw);
+  canvas.addEventListener('mousedown', (e) => {
+    isDrawing = true;
+    [lastX, lastY] = [e.clientX, e.clientY]
+  });
+  canvas.addEventListener('mouseup', () => isDrawing = false);
+  canvas.addEventListener('mouseout', () => isDrawing = false);
+
+  //touch events
+  canvas.addEventListener('touchmove', touchDraw);
+  canvas.addEventListener('touchstart', e => {
+    isDrawing = true;
+    [lastX, lastY] = [e.touches[0].clientX, e.touches[0].clientY];
+  });
+  canvas.addEventListener('touchend', () => isDrawing = false);
+  canvas.addEventListener('touchcancel', () => isDrawing = false);
+
+
+  //prevent scrolling when using touch
+  document.body.addEventListener('touchstart', (e) => {
+    if(e.target == canvas){
+      e.preventDefault();
+    }
+  }, {passive: false});
+
+  document.body.addEventListener('touchend', (e) => {
+    if(e.target == canvas){
+      e.preventDefault();
+    }
+  }, {passive: false});
+
+  document.body.addEventListener('touchmove', (e) => {
+    if(e.target == canvas){
+      e.preventDefault();
+    }
+  }, {passive: false});
+
+</script>
+
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+
+  .signatureBox{
+    margin: 20px auto;
+    border: 3px solid gray;
+    text-align: center;
+    width: 80%;
+  }
+
+  .signatureBox canvas{
+    border: thin solid red;
+    height: 100%;
+    width: 100%;
+  }
+</style>
+
+</body>
+</html>
