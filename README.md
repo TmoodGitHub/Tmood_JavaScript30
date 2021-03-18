@@ -12,3 +12,6 @@ All projects are created with:
 * Vanilla JavaScript
 * HTML
 * CSS
+
+## Status:
+Taking a break from JavaScript to build a full website as that take more priorities. However, in the proess, I am continuing to improve my skills in advance Javascript and I aim to double-back and complete this project.
