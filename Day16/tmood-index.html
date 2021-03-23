@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Whoa!</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../btn-style.css" />
+  </head>
+  <body>
+    <div class="btn-container">
+      <a href="index.html" class="button" id="button-5">Default's Version</a>
+    </div>
+    <div class="hero">
+      <h1 contenteditable>Tmood 💘 AdriHannah</h1>
+    </div>
+    <div class="watcher">
+      <div class="hand">
+        <div class="finger"></div>
+        <div class="finger"></div>
+        <div class="finger"></div>
+        <div class="finger"></div>
+      </div>
+      <div class="face">
+        <div class="eye"><div class="pupil"></div></div>
+        <div class="eye"><div class="pupil"></div></div>
+        <div class="nose"></div>
+      </div>
+      <div class="hand">
+        <div class="finger"></div>
+        <div class="finger"></div>
+        <div class="finger"></div>
+        <div class="finger"></div>
+      </div>
+      <div class="wall"></div>
+    </div>
+
+    <script>
+      let pupils = document.querySelectorAll('.pupil');
+      const hero = document.querySelector('.hero');
+      const text = hero.querySelector('h1');
+      const walk = 20; // 100px
+
+      function shadow(e) {
+        const { offsetWidth: width, offsetHeight: height } = hero;
+        let { offsetX: x, offsetY: y } = e;
+
+        if (this !== e.target) {
+          x = x + e.target.offsetLeft;
+          y = y + e.target.offsetTop;
+        }
+
+        const xWalk = Math.round((x / width) * walk - walk / 2);
+        const yWalk = Math.round((y / height) * walk - walk / 2);
+
+        text.style.textShadow = `
+        ${xWalk}px ${yWalk}px 0 rgba(0,0,0,0.5)
+        `;
+      }
+
+      function moveEyes(e) {
+        if (e.target.nodeName === 'H1') {
+          pupils.forEach((el) => {
+            if (el.classList.contains('pupil')) {
+              el.classList.remove('pupil');
+              el.classList.add('heart-eye');
+            }
+          });
+
+          pupils = document.querySelectorAll('.heart-eye');
+        } else {
+          pupils.forEach((el) => {
+            if (el.classList.contains('heart-eye')) {
+              el.classList.remove('heart-eye');
+              el.classList.add('pupil');
+            }
+          });
+
+          pupils = document.querySelectorAll('.pupil');
+        }
+
+        let x = (event.clientX * 100) / window.innerWidth + '%';
+        let y = (event.clientY * 100) / window.innerHeight + '%';
+
+        pupils.forEach((el, i) => {
+          pupils[i].style.left = x;
+          pupils[i].style.top = y;
+          pupils[i].style.transform = 'translate(-' + x + ', -' + y + ') rotate(45deg)';
+        });
+      }
+
+      hero.addEventListener('mousemove', shadow);
+      document.addEventListener('mousemove', moveEyes);
+    </script>
+  </body>
+</html>
