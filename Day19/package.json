@@ -1,0 +1,15 @@
+{
+  "name": "day19",
+  "version": "1.0.0",
+  "main": "scripts.js",
+  "scripts": {
+    "start": "browser-sync start --server --files '*.css, *.html, *.js'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "browser-sync": "^2.26.14"
+  }
+}
